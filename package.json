@@ -1,0 +1,19 @@
+{
+  "name": "live-search-city",
+  "version": "1.0.0",
+  "description": "This project is for searching data from 8ok city.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sanket Vanani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cities-list": "^1.0.3",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "redis": "^3.0.2"
+  }
+}

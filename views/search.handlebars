@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Search Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    function funchange() {
+        var st = document.getElementById("txtSearch").value;
+        
+        $.ajax({
+            type: 'post',
+            url: '/search/findcity',
+            data: { 'fc': st },
+            success: function (data) {
+                if(data.length==0 || st == null || st == "")
+                {
+                    document.getElementById('optbl').innerHTML = "No City Found";    
+                }
+                else{
+                    var cmbp = "Result";
+                    cmbp += ":<table border='1'><tr><td>City Name</td></tr>";
+                    for (var i = 0; i < data.length; i++) 
+                    {
+                        cmbp += '<tr>';
+                        cmbp += '<td value="'+data[i].cityname+'">' + data[i].cityname + '</td>';
+                        cmbp += '</tr>';
+                    }
+                    cmbp += "end of the search";
+                    document.getElementById('optbl').innerHTML = cmbp;
+                }
+            }
+        })
+    }
+</script>
+</head>
+<body>
+    Search: <input type="text" name="txtSearch" id="txtSearch" onkeyup="funchange()">
+    <div id="optbl"></div>
+</body>
+
+</html>
